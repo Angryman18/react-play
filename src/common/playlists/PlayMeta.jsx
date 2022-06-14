@@ -1,7 +1,8 @@
 import { cloneElement } from "react";
 import { Helmet } from "react-helmet";
 
-function PlayMeta({ id, name, description, path, cover, component }) {
+function PlayMeta({ id, name, description, path, cover, component: Component }) {
+  console.log("this is component", Component)
   const playFolder = path.split("/")[2];
 
   let metaImage; // Initialize metaImage variable
@@ -50,7 +51,7 @@ function PlayMeta({ id, name, description, path, cover, component }) {
           />
         )}
       </Helmet>
-      {cloneElement(component(), { id })}
+      {cloneElement(<Component />, { id })}
     </>
   );
 }
